@@ -1,8 +1,8 @@
 import "./globals.css";
-import type { Metadata } from "next";
-import { Saira } from 'next/font/google'
+import DefaultProviders from "@/contexts/DefaultProviders";
 import Header from "@/components/Header";
-import { FilterContextProvider } from "@/contexts/FilterContext";
+import { Saira } from 'next/font/google'
+import type { Metadata } from "next";
 
 const saira = Saira({
     subsets: ['latin'],
@@ -16,10 +16,10 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
     return (
         <html lang="pt-br">
             <body className={saira.className}>
-                <FilterContextProvider>
+                <DefaultProviders>
                     <Header />
                     {children}
-                </FilterContextProvider>
+                </DefaultProviders>
             </body>
         </html>
     );
