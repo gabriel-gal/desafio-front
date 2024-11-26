@@ -9,7 +9,8 @@ interface IDefaultProviders {
 }
 
 const theme = {
-    descktopBreakpoint: "768px"
+    descktopBreakpoint: "968px",
+    tableBreakpoint: "768px",
 }
 
 export default function DefaultProviders({ children }: IDefaultProviders) {
