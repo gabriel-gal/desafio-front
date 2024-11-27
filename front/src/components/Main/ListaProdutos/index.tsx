@@ -5,7 +5,7 @@ import ProdutoCard from "./produto-card"
 
 const ListContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, 256px);
+    grid-template-columns: repeat(auto-fill, 256px);
     grid-gap: 32px;
     max-width: 100%;
     margin-top: 32px;
