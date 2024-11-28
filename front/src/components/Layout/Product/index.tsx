@@ -1,9 +1,8 @@
 "use client"
-import { ShoppingBagIcon2 } from "@/components/Icons/shopping-bag-2"
-import formatValor from "@/components/Main/ListaProdutos/hook/formatValor"
-import ButtonBack from "@/components/Produto/ButtonBack"
-import { DefaultPage } from "@/components/default-page"
-import useProduto from "@/components/useProdutos"
+import { ShoppingBagWhiteIcon } from "@/components/Icons/shopping-bag-white"
+import { BtnBack } from "@/components/BtnBack"
+import formatPrice from "@/utils/FormatPrice"
+import useProduct from "@/hooks/useProduct"
 import styled from "styled-components"
 
 const Container = styled.div`
@@ -102,9 +101,9 @@ const ProductInfo = styled.div`
     }
 `
 
-export default function Produto({ searchParams }: { searchParams: { id: string } }) {
+export default function Product({ searchParams }: { searchParams: { id: string } }) {
 
-    const { data } = useProduto(searchParams.id)
+    const { data } = useProduct(searchParams.id)
 
     const handleAddCart = () => {
         let cartItems = localStorage.getItem('cart-items');
@@ -128,29 +127,27 @@ export default function Produto({ searchParams }: { searchParams: { id: string }
 
 
     return (
-        <DefaultPage>
-            <Container>
-                <ButtonBack navigate={"/"} />
-                <section>
-                    <img src={data?.image_url} />
-                    <div>
-                        <ProductInfo>
-                            <span>{data?.category}</span>
-                            <h2>{data?.name}</h2>
-                            <span>{formatValor(data?.price_in_cents ?? 0)}</span>
-                            <p>*Frete de R$40,00 para todo o Brasil. Grátis para compras acima de R$900,00.</p>
-                            <div>
-                                <h3>Descrição</h3>
-                                <p>{data?.description}</p>
-                            </div>
-                        </ProductInfo>
-                        <button onClick={handleAddCart}>
-                            <ShoppingBagIcon2 />
-                            Adicionar ao carrinho
-                        </button>
-                    </div>
-                </section>
-            </Container>
-        </DefaultPage>
+        <Container>
+            <BtnBack />
+            <section>
+                <img src={data?.image_url} />
+                <div>
+                    <ProductInfo>
+                        <span>{data?.category}</span>
+                        <h2>{data?.name}</h2>
+                        <span>{formatPrice(data?.price_in_cents ?? 0)}</span>
+                        <p>*Frete de R$40,00 para todo o Brasil. Grátis para compras acima de R$900,00.</p>
+                        <div>
+                            <h3>Descrição</h3>
+                            <p>{data?.description}</p>
+                        </div>
+                    </ProductInfo>
+                    <button onClick={handleAddCart}>
+                        <ShoppingBagWhiteIcon />
+                        Adicionar ao carrinho
+                    </button>
+                </div>
+            </section>
+        </Container>
     );
 }

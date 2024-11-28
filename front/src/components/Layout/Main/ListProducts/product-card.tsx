@@ -1,15 +1,15 @@
-import styled from "styled-components";
-import formatValor from "./hook/formatValor";
-import { useRouter } from "next/navigation";
+import formatPrice from "@/utils/FormatPrice"
+import { useRouter } from "next/navigation"
+import styled from "styled-components"
 
-interface IProdutoCard {
-    image: string,
+interface IProductCard {
+    id: string,
     title: string,
     price: number,
-    id: string,
+    image: string,
 }
 
-const Card = styled.div`
+const Container = styled.div`
     display: flex;
     cursor: pointer;
     align-items: center;
@@ -23,6 +23,7 @@ const Card = styled.div`
     img {
         width: 256px;
         height: 300px;
+        border-radius: 4px 4px 0px 0px
     }
 
     h3 {
@@ -57,23 +58,22 @@ const Card = styled.div`
 
 `
 
-export default function ProdutoCard(props: IProdutoCard) {
-    
+export default function ProductCard(props: IProductCard) {
+
     const router = useRouter()
-    const price = formatValor(props.price)
 
     const handleNavigate = () => {
-        router.push(`/produto?id=${props.id}`)
+        router.push(`/product?id=${props.id}`)
     }
 
     return (
-        <Card onClick={handleNavigate}>
+        <Container onClick={handleNavigate}>
             <img src={props.image} />
             <div>
                 <h3>{props.title}</h3>
                 <div></div>
-                <p>{price}</p>
+                <p>{formatPrice(props.price)}</p>
             </div>
-        </Card>
+        </Container>
     )
 }

@@ -1,10 +1,10 @@
 "use client"
-import ListaProdutos from "@/components/Main/ListaProdutos"
-import FilterBar from "@/components/Main/FilterBar"
+import ListProducts from "@/components/Layout/Main/ListProducts"
+import FilterBar from "@/components/Layout/Main/FilterBar"
+import { DefaultPage } from "@/components/DefaultPage"
 import styled from "styled-components"
-import { DefaultPage } from "@/components/default-page"
 
-const PageWrapper = styled.main`
+const Container = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,10 +14,10 @@ export default function Home() {
 
     return (
         <DefaultPage>
-            <PageWrapper>
+            <Container>
                 <FilterBar />
-                <ListaProdutos />
-            </PageWrapper>
+                <ListProducts />
+            </Container>
         </DefaultPage>
     );
 }

@@ -1,8 +1,8 @@
-import { PriorityType } from "@/@types/types"
-import ArrowIcon from "@/components/Icons/arrow"
 import { useFilter } from "@/contexts/FilterContext"
-import { useState } from "react"
+import ArrowIcon from "@/components/Icons/arrow"
+import { PriorityType } from "@/@types/types"
 import styled from "styled-components"
+import { useState } from "react"
 
 const Container = styled.div`
     display: flex;
@@ -53,7 +53,7 @@ const PriorityFilter = styled.ul`
 
 `
 
-export default function FilterPriority() {
+export default function FilterOrder() {
 
     const { setPriority } = useFilter()
     const [open, SetOpen] = useState(false)
@@ -70,13 +70,13 @@ export default function FilterPriority() {
                 Organizar por
                 <ArrowIcon />
             </button>
-            {open && 
-            <PriorityFilter>
-                <li onClick={() => hadleUpdatePriority(PriorityType.NEWS)}>Novidades</li>
-                <li onClick={() => hadleUpdatePriority(PriorityType.BIGGEST_PRICE)}>Preço: Maior - menor</li>
-                <li onClick={() => hadleUpdatePriority(PriorityType.MINOR_PRICE)}>Preço: Menor - maior</li>
-                <li onClick={() => hadleUpdatePriority(PriorityType.POPULARITY)}>Mais vendidos</li>
-            </PriorityFilter>
+            {open &&
+                <PriorityFilter>
+                    <li onClick={() => hadleUpdatePriority(PriorityType.NEWS)}>Novidades</li>
+                    <li onClick={() => hadleUpdatePriority(PriorityType.BIGGEST_PRICE)}>Preço: Maior - menor</li>
+                    <li onClick={() => hadleUpdatePriority(PriorityType.MINOR_PRICE)}>Preço: Menor - maior</li>
+                    <li onClick={() => hadleUpdatePriority(PriorityType.POPULARITY)}>Mais vendidos</li>
+                </PriorityFilter>
             }
         </Container>
     )

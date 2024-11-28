@@ -1,5 +1,5 @@
 "use client"
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const DefaultPage = styled.div`
     padding: 12px 24px;

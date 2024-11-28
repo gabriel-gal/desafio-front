@@ -1,11 +1,8 @@
-
-
 import { ChangeEvent } from "react"
 import { styled } from "styled-components"
-
-import formatValor from "./Main/ListaProdutos/hook/formatValor"
 import { ProductInCart } from "@/@types/types"
-import { DeleteIcon } from "./Icons/delete-icon"
+import { DeleteIcon } from "../../Icons/delete"
+import formatPrice from "@/utils/FormatPrice"
 
 interface CartItemProps {
     product: ProductInCart
@@ -13,7 +10,7 @@ interface CartItemProps {
     handleDelete(id: string): void
 }
 
-const Item = styled.li`
+const Container = styled.li`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,16 +86,16 @@ const SelectQuantity = styled.select`
     font-size: 16px;
 `
 
-export function CartItem({ product, handleUpdateQuantity, handleDelete } : CartItemProps){
+export function CartItem({ product, handleUpdateQuantity, handleDelete }: CartItemProps) {
     const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
         handleUpdateQuantity(product.id, Number(e.target.value))
     }
-    return(
-        <Item>
+    return (
+        <Container>
             <button onClick={() => handleDelete(product.id)} aria-label="Deletar">
-                <DeleteIcon/>
+                <DeleteIcon />
             </button>
-            <img src={product.image_url}/>
+            <img src={product.image_url} />
             <div>
                 <h4>{product.name}</h4>
                 <p>{product.description}</p>
@@ -110,9 +107,9 @@ export function CartItem({ product, handleUpdateQuantity, handleDelete } : CartI
                         <option value={4}>4</option>
                         <option value={5}>5</option>
                     </SelectQuantity>
-                    <span>{formatValor(product.price_in_cents)}</span>
+                    <span>{formatPrice(product.price_in_cents)}</span>
                 </div>
             </div>
-        </Item>
+        </Container>
     )
 }

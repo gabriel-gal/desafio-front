@@ -1,7 +1,7 @@
 "use client"
-import styled from "styled-components";
-import FilterTypes from "./filter-type";
-import FilterPriority from "../FilterPriority";
+import FilterFiled from "./filter-field"
+import FilterOrder from "./filter-order"
+import styled from "styled-components"
 
 const Container = styled.div`
     display: flex;
@@ -13,8 +13,8 @@ const Container = styled.div`
 export default function FilterBar() {
     return (
         <Container>
-            <FilterTypes />
-            < FilterPriority />
+            <FilterFiled />
+            <FilterOrder />
         </Container>
     )
 }

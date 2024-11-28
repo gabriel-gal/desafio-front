@@ -7,8 +7,8 @@ import { ReactNode } from "react"
 interface IDefaultProviders { children: ReactNode }
 
 const theme = {
-    desckTopBP: "968px",
-    tabletBP: "768px",
+    desckTopBP: "1170px",
+    phoneBP: "700px",
 }
 
 export default function DefaultProvider({ children }: IDefaultProviders) {

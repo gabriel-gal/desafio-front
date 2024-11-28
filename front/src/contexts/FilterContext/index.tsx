@@ -1,6 +1,6 @@
 "use client"
-import { FilterType, PriorityType } from "@/@types/types";
 import { PropsWithChildren, createContext, useContext, useState } from "react";
+import { FilterType, PriorityType } from "@/@types/types";
 
 const FilterContext = createContext({
     search: '',

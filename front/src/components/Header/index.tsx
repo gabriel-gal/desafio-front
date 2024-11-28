@@ -1,9 +1,9 @@
 "use client"
-import styled from "styled-components"
-import { Saira_Stencil_One } from 'next/font/google'
-import { InputWSearchIcon } from "./input"
-import { CartControl } from "./cart-control"
 import { useFilter } from "@/contexts/FilterContext"
+import { Saira_Stencil_One } from 'next/font/google'
+import { CartControl } from "./cart-control"
+import { InputWSearchIcon } from "./input"
+import styled from "styled-components"
 
 const saira_stencil = Saira_Stencil_One({
     subsets: ['latin'],
@@ -22,6 +22,10 @@ const TagHeader = styled.header`
         gap: 24px;
     }
 
+    @media (min-width: ${props => props.theme.phoneBP}) {
+        padding: 16px 100px;
+    }
+
     @media (min-width: ${props => props.theme.desckTopBP}) {
         padding: 20px 160px;
     }
@@ -32,8 +36,8 @@ const Logo = styled.a`
     line-height: 150%;
     text-decoration: none;
 
-    @media (min-width: ${props => props.theme.tabletBP}) {
-        font-size: 24px;
+    @media (min-width: ${props => props.theme.phoneBP}) {
+        font-size: 30px;
     }
 
     @media (min-width: ${props => props.theme.desckTopBP}) {

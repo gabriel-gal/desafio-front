@@ -1,7 +1,7 @@
-import { styled } from "styled-components";
-import { ShoppingBagIcon } from "@/components/Icons/shopping-bag";
-import { useRouter } from "next/navigation";
-import { useLocalStorage } from "./hooks/useLocalStorage";
+import { ShoppingBagIcon } from "@/components/Icons/shopping-bag"
+import { useLocalStorage } from "@/hooks/useLocalStorage"
+import { useRouter } from "next/navigation"
+import { styled } from "styled-components"
 
 const CartCount = styled.span`
     width: 17px;
