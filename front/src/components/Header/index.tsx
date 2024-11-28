@@ -22,7 +22,7 @@ const TagHeader = styled.header`
         gap: 24px;
     }
 
-    @media (min-width: ${props => props.theme.descktopBreakpoint}) {
+    @media (min-width: ${props => props.theme.desckTopBP}) {
         padding: 20px 160px;
     }
 `
@@ -30,12 +30,13 @@ const Logo = styled.a`
     color: var(--logo-color);
     font-size: 20px;
     line-height: 150%;
+    text-decoration: none;
 
-    @media (min-width: ${props => props.theme.tableBreakpoint}) {
+    @media (min-width: ${props => props.theme.tabletBP}) {
         font-size: 24px;
     }
 
-    @media (min-width: ${props => props.theme.descktopBreakpoint}) {
+    @media (min-width: ${props => props.theme.desckTopBP}) {
         font-size: 40px;
     }
 `
@@ -46,7 +47,7 @@ export default function Header() {
 
     return (
         <TagHeader>
-            <Logo className={saira_stencil.className}>Capputeeno</Logo>
+            <Logo className={saira_stencil.className} href="/">Capputeeno</Logo>
             <div>
                 <InputWSearchIcon
                     value={search}

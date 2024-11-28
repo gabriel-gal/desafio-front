@@ -31,3 +31,7 @@ export interface ProductFetchResponse {
         Product: Products
     }
 }
+
+export interface ProductInCart extends Products {
+    quantity: number
+}

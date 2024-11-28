@@ -6,7 +6,7 @@ export const DefaultPage = styled.div`
     min-height: 100vh;
     background-color: var(--bg-primary);
 
-    @media (min-width: ${props => props.theme.descktopBreakpoint}) {
+    @media (min-width: ${props => props.theme.desckTopBP}) {
         padding: 34px 160px;
     }
 `

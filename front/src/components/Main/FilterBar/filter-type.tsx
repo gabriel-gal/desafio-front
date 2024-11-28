@@ -26,7 +26,7 @@ const FilterItem = styled.li<IFilterItemProps>`
     cursor: pointer;
     border-bottom: ${props => props.selected ? '4px solid var(--color-oragen)' : ''};
 
-    @media (min-width: ${props => props.theme.descktopBreakpoint}) {
+    @media (min-width: ${props => props.theme.desckTopBP}) {
         font-size: 16px;
         line-height: 22px;
     }
