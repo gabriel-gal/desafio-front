@@ -1,17 +1,28 @@
 "use client"
-import { PropsWithChildren, createContext, useContext, useState } from "react";
-import { FilterType, PriorityType } from "@/@types/types";
+import { PropsWithChildren, createContext, useContext, useState } from "react"
+import { FilterType, PriorityType } from "@/@types/types"
 
-const FilterContext = createContext({
+interface FilterContextType {
+    search: string;
+    page: number;
+    type: FilterType;
+    priority: PriorityType;
+    setSearch: (value: string) => void;
+    setPage: (value: number) => void;
+    setType: (value: FilterType) => void;
+    setPriority: (value: PriorityType) => void;
+}
+
+const FilterContext = createContext<FilterContextType>({
     search: '',
     page: 0,
     type: FilterType.ALL,
     priority: PriorityType.NEWS,
-    setPriority: (value: PriorityType) => { },
-    setSearch: (value: string) => { },
-    setPage: (value: number) => { },
-    setType: (value: FilterType) => { },
-})
+    setSearch: () => {},
+    setPage: () => {},
+    setType: () => {},
+    setPriority: () => {},
+});
 
 export function FilterContextProvider({ children }: PropsWithChildren) {
 

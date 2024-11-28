@@ -3,6 +3,7 @@ import { styled } from "styled-components"
 import { ProductInCart } from "@/@types/types"
 import { DeleteIcon } from "../../Icons/delete"
 import formatPrice from "@/utils/FormatPrice"
+import Image from "next/image"
 
 interface CartItemProps {
     product: ProductInCart
@@ -29,12 +30,6 @@ const Container = styled.li`
         border: none;
         background: transparent;
         cursor: pointer;
-    }
-
-    img {
-        max-height: 100%;
-        width: 256px;
-        border-radius: 8px 0 0 8px;
     }
 
     > div {
@@ -95,7 +90,12 @@ export function CartItem({ product, handleUpdateQuantity, handleDelete }: CartIt
             <button onClick={() => handleDelete(product.id)} aria-label="Deletar">
                 <DeleteIcon />
             </button>
-            <img src={product.image_url} />
+            <Image
+                alt={product.name}
+                width={256}
+                height={210}
+                src={product.image_url}
+            />
             <div>
                 <h4>{product.name}</h4>
                 <p>{product.description}</p>

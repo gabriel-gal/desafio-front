@@ -4,6 +4,7 @@ import { BtnBack } from "@/components/BtnBack"
 import formatPrice from "@/utils/FormatPrice"
 import useProduct from "@/hooks/useProduct"
 import styled from "styled-components"
+import Image from "next/image"
 
 const Container = styled.div`
     display: flex;
@@ -17,11 +18,6 @@ const Container = styled.div`
         width: 100%;
         gap: 32px;
         margin-top: 24px;
-
-        img {
-            max-width: 640px;
-            width: 50%;
-        }
         
         > div {
             display: flex;
@@ -106,11 +102,11 @@ export default function Product({ searchParams }: { searchParams: { id: string }
     const { data } = useProduct(searchParams.id)
 
     const handleAddCart = () => {
-        let cartItems = localStorage.getItem('cart-items');
+        const cartItems = localStorage.getItem('cart-items');
         if (cartItems) {
-            let cartItemsArray = JSON.parse(cartItems);
+            const cartItemsArray = JSON.parse(cartItems);
 
-            let existingProductIndex = cartItemsArray.findIndex((item: { id: string; }) => item.id === searchParams.id);
+            const existingProductIndex = cartItemsArray.findIndex((item: { id: string; }) => item.id === searchParams.id);
 
             if (existingProductIndex != -1) {
                 cartItemsArray[existingProductIndex].quantity += 1;
@@ -130,7 +126,13 @@ export default function Product({ searchParams }: { searchParams: { id: string }
         <Container>
             <BtnBack />
             <section>
-                <img src={data?.image_url} />
+                <Image 
+                    width={640}
+                    height={350}
+                    src={data?.image_url ?? ""}
+                    alt={data?.name ?? "Sem nome"}
+                    style={{ borderRadius: '10px' }} 
+                />
                 <div>
                     <ProductInfo>
                         <span>{data?.category}</span>

@@ -1,4 +1,5 @@
 import formatPrice from "@/utils/FormatPrice"
+import Image from "next/image"
 import { useRouter } from "next/navigation"
 import styled from "styled-components"
 
@@ -19,12 +20,6 @@ const Container = styled.div`
     background: rgba(255,255,255, 0.4);
     border-radius: 0px 0px 4px 4px;
     width: 256px;
-
-    img {
-        width: 256px;
-        height: 300px;
-        border-radius: 4px 4px 0px 0px
-    }
 
     h3 {
         font-weight: 300;
@@ -68,7 +63,13 @@ export default function ProductCard(props: IProductCard) {
 
     return (
         <Container onClick={handleNavigate}>
-            <img src={props.image} />
+            <Image
+                width={256}
+                height={300}
+                alt={props.title}
+                src={props.image}
+                style={{ borderRadius: '4px 4px 0px 0px' }}
+            />
             <div>
                 <h3>{props.title}</h3>
                 <div></div>
