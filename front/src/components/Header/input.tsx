@@ -22,12 +22,17 @@ export const Input = styled.input`
 
 const Inputcontainer = styled.div`
     position: relative;
+    display: none!important;
     width: 250px;
     svg {
         position: absolute;
         right: 20px;
         top: 50%;
         transform: translateY(-50%);
+    }
+
+    @media (min-width: ${props => props.theme.phoneBP}){
+        display: block!important;
     }
 
     @media (min-width: ${props => props.theme.desckTopBP}){
